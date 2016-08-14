@@ -1,0 +1,302 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+<link href="https://fonts.googleapis.com/css?family=Fugaz+One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+<!-- Latest compiled and minified JavaScript -->
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+  
+  @import 'font-awesome.min.css';
+@import 'font-awesome-ie7.min.css';
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: 'Fugaz One', cursive;
+  font-weight:none;
+  color:white;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  padding-bottom: 19px;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+.navbar,.well{background:rgb(91,91,91);}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+.container-narrow &gt; hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 21px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+.form-control{
+
+  height:50px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+label{
+
+  font-family: "Archivo Narrow";
+  font-size: 16px;
+}
+.modal-body,.modal-header,.modal-footer,#l{
+
+background:rgb(91,91,91);
+font-family: "Archivo Narrow";
+font-size: 16px;
+
+}
+</style>
+<script type="text/javascript">
+    
+            function postToGoogle() {
+               var name = $('#bname').val();
+        var author = $('#author').val();
+        var mbno = $('#mbno').val();
+        var clz = $('#clz').val();
+        var bld = $('#bld').val();
+                $.ajax({
+                   url: "https://docs.google.com/forms/d/e/1FAIpQLScRR10LmEEB9H9AfP1On4xHQJHy512sNvmAAqzWgSWnrapJrw/formResponse",
+
+                data: {"entry.436556898" : name, "entry.766436715" : author, "entry.117135383": mbno,"entry.1333529601": clz,"entry.1077349164": bld},
+                    type: "POST",
+                    dataType: "xml",
+                    statusCode: {
+                        0: function() {
+                            
+                            $('#bname').val("");
+                            $('#author').val("");
+                            $('#mbno').val("");
+                            $('#clz').val("");
+                            $('#bld').val("");
+                            $('#myModal').modal('show');
+                        },
+                        200: function() {
+                            alert('failure');
+                        }
+                    }
+                });
+            }
+
+
+     $(document).ready(function(){
+                
+        $('[data-toggle="tooltip"]').tooltip();
+
+
+                $('#form').submit(function() {
+                      var name = $('#bname').val();
+        var author = $('#author').val();
+        var mbno = $('#mbno').val();
+        var clz = $('#clz').val();
+        var bld = $('#bld').val();
+               
+                      if((author != "")&&( name != "")&&(mbno != "")&&(clz != "")&&(bld != "")){
+
+                        postToGoogle();
+
+                      }
+                      else{
+
+                        $('[data-toggle="tooltip"]').show();
+                        
+                      }
+                    
+                    return false;
+                });
+
+                
+
+                  
+
+            });
+</script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+      <center><h2>Getmybooks.co</h2></center>
+    </nav>
+    <br><br><br>
+<div class="container">
+   <center> <h1 class="btn btn-lg btn-default">Buy Books Form us</h1></center>
+   <br>
+  <div class="col-lg-12 well">
+  <h3>Buy books from us by simply giving the details of the book . We will bring that book to your campus.
+  </h3><br>
+  <form method="post" id="form" target="_self" action="">
+  <div class="row">
+          <div class="col-sm-12">
+            <div class="row">
+              <div class="col-sm-2 form-group">
+                <label>Book Name :</label>
+                </div>
+                <div class="col-sm-8 form-group">
+                <span data-toggle="tooltip"  data-placement="right" title="book name here">
+                <input type="text" id="bname" placeholder="Enter Book Name Here.." class="form-control">
+                </span>
+                </div>
+                  
+            </div>
+            <div class="row">
+              <div class="col-sm-2 form-group">
+                <label>Author :</label>
+                </div>
+                
+                <div class="col-sm-8 form-group">
+                <span data-toggle="tooltip"  data-placement="right" title="author name here">
+                <input type="text" id="author" placeholder="Enter Auther  Here.." class="form-control">
+                </span>
+              </div>    
+              
+            </div>  
+            <div class="row">
+              <div class="col-sm-2 form-group">
+                <label>Mobile no :</label>
+                </div>
+                <div class="col-sm-8 form-group">
+                <span data-toggle="tooltip"  data-placement="right" title="mobile number here">
+                
+                <input type="text" id="mbno" placeholder="Enter mobile no Here.." class="form-control">
+              </span>
+              </div>    
+              
+            </div>
+            <div class="row">
+              <div class="col-sm-2 form-group">
+                <label>College :</label>
+                </div>
+                <div class="col-sm-8 form-group">
+                <span data-toggle="tooltip"  data-placement="right" title="select college here">
+                
+                <select name="college"  id="clz" class="form-control">
+                <option>Aditya Engineering College</option>
+                <option>Aditya College Of Engineering & technology</option>
+                <option>Aditya College Of Engineering</option>
+                </select>
+
+                </span>
+              </div>    
+              
+            </div>
+            <div class="row">
+              <div class="col-sm-2 form-group">
+                <label>Building :</label>
+                </div>
+                <div class="col-sm-8 form-group">
+                <span data-toggle="tooltip"  data-placement="right" title="select building here">
+                
+                <select name="college" id="bld" class="form-control">
+                <option>Billgates bhavan</option>
+                <option>cotton bhavan</option>
+                <option>k l rao bhavan</option>
+                </select>
+                </span>
+              </div>    
+              
+            </div>
+          <input  type="submit" class="btn btn-lg btn-info" />        
+          </div>
+        </form> 
+        </div>
+  </div>
+  </div>
+
+
+  <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" id="l">&times;</button>
+        <h4 class="modal-title">Getmybooks.co</h4>
+      </div>
+      <div class="modal-body">
+        <p>Your request has been successfully submitted.
+          An email is send to you with reference id and book details .
+          We will get back to you soon save our phone no to your phone book.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+</body>
